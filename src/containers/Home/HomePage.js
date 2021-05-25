@@ -1,8 +1,13 @@
 import React from "react";
-import PropTypes from "prop-types";
+
+import { Dashboard, DashboardMenu, DashboardButton } from "../../components";
 
 const HomePage = () => (
-  <h1>Hello world</h1>
+  <Dashboard>
+    <DashboardMenu title="Card Memory Match Game">
+      <DashboardButton>start game</DashboardButton>
+    </DashboardMenu>
+  </Dashboard>
 );
 
 export default HomePage;

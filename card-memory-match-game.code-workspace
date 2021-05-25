@@ -1,7 +1,8 @@
 {
 	"folders": [
 		{
-			"path": "."
+			"name": "card-memory-match-game",
+			"path": ".",
 		}
 	],
 	"settings": {

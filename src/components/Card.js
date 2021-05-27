@@ -42,8 +42,8 @@ const styles = {
   },
 };
 
-const Card = ({ name, classes, isActive }) => (
-  <div className={classes.root}>
+const Card = ({ name, classes, isActive, onClick }) => (
+  <div role="presentation" className={classes.root} onClick={onClick}>
     <div
       className={classNames(classes.flipper, {
         [classes.flipperRotate]: isActive,
@@ -53,7 +53,9 @@ const Card = ({ name, classes, isActive }) => (
       <MUCard className={classNames(classes.page, classes.pageFront)} />
       <MUCard className={classNames(classes.page, classes.pageBack)}>
         <CardContent>
-          <Typography>{name}</Typography>
+          <Typography variant="h5" component="h2">
+            {name}
+          </Typography>
         </CardContent>
       </MUCard>
     </div>

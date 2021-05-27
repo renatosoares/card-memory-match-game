@@ -1,33 +1,44 @@
 import React from "react";
+import { connect } from "react-redux";
 
 import { Board, Card } from "../../components";
 
-// const GamePage = () => (
-//   <Board>
-//     <Card name="Test card" isActive />
-//   </Board>
-// );
+const GamePage = ({ isActive, onCardClick }) => (
+  <Board>
+    <Card name="Test card" isActive={isActive} onClick={onCardClick} />
+  </Board>
+);
 
-class GamePage extends React.Component {
-  state = { isActive: false };
+// class GamePage extends React.Component {
+//   state = { isActive: false };
 
-  handleCardClick = () => {
-    this.setState((prevState) => ({
-      isActive: !prevState.isActive,
-    }));
-  };
+//   handleCardClick = () => {
+//     this.setState((prevState) => ({
+//       isActive: !prevState.isActive,
+//     }));
+//   };
 
-  render() {
-    return (
-      <Board>
-        <Card
-          name="Test card"
-          isActive={this.state.isActive}
-          onClick={this.handleCardClick}
-        />
-      </Board>
-    );
-  }
-}
+//   render() {
+//     return (
+//       <Board>
+//         <Card
+//           name="Test card"
+//           isActive={this.state.isActive}
+//           onClick={this.handleCardClick}
+//         />
+//       </Board>
+//     );
+//   }
+// }
 
-export default GamePage;
+const mapStateToProps = (state) => ({
+  isActive: state.isActive,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onCardClick: () => {
+    dispatch({ type: "SELECT_CARD" });
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(GamePage);
